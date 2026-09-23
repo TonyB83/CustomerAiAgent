@@ -1,0 +1,12 @@
+Procédure d'annulation de commande
+
+Une commande peut être annulée avant son expédition.
+
+Pour demander l'annulation d'une commande, le client doit contacter
+le service client en indiquant son numéro de commande.
+
+Si la commande a déjà été expédiée, elle ne peut plus être annulée
+directement. Le client peut alors utiliser la procédure de retour.
+
+Le remboursement d'une commande annulée est effectué selon
+la politique de remboursement de l'entreprise.

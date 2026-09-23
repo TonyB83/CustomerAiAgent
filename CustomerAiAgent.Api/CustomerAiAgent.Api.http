@@ -1,0 +1,6 @@
+@CustomerAiAgent.Api_HostAddress = http://localhost:5122
+
+GET {{CustomerAiAgent.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
