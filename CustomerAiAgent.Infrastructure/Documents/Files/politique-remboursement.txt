@@ -1,0 +1,13 @@
+OLITIQUE DE REMBOURSEMENT
+
+Un client peut demander le remboursement d'une commande
+dans un délai de 30 jours après la date de livraison.
+
+Les commandes déjà remboursées ne peuvent pas faire l'objet
+d'un second remboursement.
+
+Pour demander un remboursement, le client doit contacter
+le service client et fournir son numéro de commande.
+
+Le remboursement est effectué dans un délai de 5 jours
+ouvrés après validation de la demande.

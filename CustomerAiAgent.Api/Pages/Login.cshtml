@@ -1,0 +1,76 @@
+﻿@page
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Connexion</title>
+
+    <style>
+
+            body {
+                font-family: Arial;
+                background: #f3f3f3;
+            }
+
+            .login {
+                width: 350px;
+                margin: 100px auto;
+                padding: 30px;
+                background: white;
+                border-radius: 10px;
+            }
+
+            input {
+                width: 100%;
+                box-sizing: border-box;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+
+            #error {
+                color: red;
+            }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="login">
+
+        <h2>Customer AI Agent</h2>
+
+        <h3>Connexion</h3>
+
+        <input id="username"
+               type="text"
+               placeholder="Utilisateur" />
+
+        <input id="password"
+               type="password"
+               placeholder="Mot de passe" />
+
+        <button onclick="login()">
+            Se connecter
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>

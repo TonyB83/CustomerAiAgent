@@ -1,0 +1,79 @@
+﻿@page
+
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <title>Customer AI Agent</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .chat {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        #question {
+            width: 70%;
+            padding: 12px;
+        }
+
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #answer {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 10px;
+            min-height: 100px;
+            white-space: pre-wrap;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="chat">
+
+    <h1>Customer AI Agent</h1>
+
+    <p>
+        Assistant de gestion des clients
+    </p>
+
+    <input id="question"
+           type="text"
+           placeholder="Posez votre question..." />
+
+    <button onclick="ask()">
+        Envoyer
+    </button>
+
+    <button onclick="logout()">
+        Déconnexion
+    </button>
+
+    <div id="answer"></div>
+
+</div>
+
+<script src="/js/chat.js"></script>
+
+</body>
+
+</html>

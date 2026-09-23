@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CustomerAiAgent.Api/CustomerAiAgent.Api.csproj" />
+  <Project Path="CustomerAiAgent.Application/CustomerAiAgent.Application.csproj" />
+  <Project Path="CustomerAiAgent.Domain/CustomerAiAgent.Domain.csproj" />
+  <Project Path="CustomerAiAgent.Infrastructure/CustomerAiAgent.Infrastructure.csproj" />
+</Solution>

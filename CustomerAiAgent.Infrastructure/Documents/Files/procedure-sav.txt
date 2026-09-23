@@ -1,0 +1,12 @@
+PROCEDURE SERVICE APRES-VENTE
+
+Pour toute demande concernant une commande, le client doit
+fournir son numéro de commande.
+
+Le service SAV vérifie d'abord le statut de la commande.
+
+Si la commande est encore en préparation, une modification
+d'adresse peut être demandée.
+
+Si la commande a déjà été expédiée, l'adresse ne peut plus
+être modifiée.
