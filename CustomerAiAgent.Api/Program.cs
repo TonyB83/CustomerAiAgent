@@ -284,24 +284,7 @@ builder.Services.AddTransient<Kernel>(sp =>
 // AI SERVICE
 // ============================================================
 
-switch (aiProvider)
-{
-    case AiProvider.OpenAI:
-
-        builder.Services.AddScoped<
-            IAiService,
-            OpenAiAiService>();
-
-        break;
-
-    case AiProvider.Gemini:
-
-        builder.Services.AddScoped<
-            IAiService,
-            GeminiAiService>();
-
-        break;
-}
+builder.Services.AddScoped<IAiService, ChatAgentService>();
 
 // ============================================================
 // MVC / API / RAZOR

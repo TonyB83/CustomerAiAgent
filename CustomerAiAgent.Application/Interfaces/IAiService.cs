@@ -1,4 +1,4 @@
-namespace CustomerAiAgent.Application.Interfaces;
+﻿namespace CustomerAiAgent.Application.Interfaces;
 
 public interface IAiService
 {

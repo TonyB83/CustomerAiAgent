@@ -6,18 +6,18 @@ using Microsoft.SemanticKernel.ChatCompletion;
 
 namespace CustomerAiAgent.Infrastructure.AI;
 
-public class GeminiAiService : IAiService
+public class ChatAgentService : IAiService
 {
     private readonly Kernel _kernel;
     private readonly IChatCompletionService _chatCompletionService;
     private readonly IMemoryCache _cache;
-    private readonly ILogger<GeminiAiService> _logger;
+    private readonly ILogger<ChatAgentService> _logger;
 
-    public GeminiAiService(
+    public ChatAgentService(
         Kernel kernel,
         IChatCompletionService chatCompletionService,
         IMemoryCache cache,
-        ILogger<GeminiAiService> logger)
+        ILogger<ChatAgentService> logger)
     {
         _kernel = kernel;
         _chatCompletionService = chatCompletionService;
@@ -45,6 +45,8 @@ public class GeminiAiService : IAiService
                 Tu dois être précis et ne jamais inventer
                 d'informations provenant de la base de données
                 ou des documents internes.
+
+                Tu as accès aux plugins suivants.
 
                 PLUGIN CUSTOMER
 
@@ -75,8 +77,8 @@ public class GeminiAiService : IAiService
                 PLUGIN DOCUMENT
 
                 search_internal_documents
-                - Recherche dans les documents internes
-                  de l'entreprise.
+                - Recherche des informations dans les
+                  documents internes de l'entreprise.
 
                 RÈGLES IMPORTANTES
 
@@ -97,30 +99,32 @@ public class GeminiAiService : IAiService
                    utilise get_orders_by_status.
 
                 6. Si la question concerne une procédure,
-                   une politique, une règle interne,
-                   le SAV, une livraison,
-                   une annulation ou un remboursement,
+                   une politique interne, un remboursement,
+                   une annulation, une livraison ou le SAV,
                    utilise search_internal_documents.
 
-                7. Pour toute information provenant des documents
-                   internes, utilise d'abord search_internal_documents.
+                7. Pour une information provenant de la base
+                   de données, utilise toujours les fonctions
+                   disponibles avant de répondre.
 
-                8. Ne jamais inventer une règle interne.
+                8. Pour une information provenant des documents
+                   internes, utilise toujours
+                   search_internal_documents.
 
-                9. Si aucune information pertinente n'est trouvée
-                   dans les documents internes, indique clairement
-                   que l'information n'a pas été trouvée.
+                9. Ne jamais inventer un client,
+                   une commande, un montant, un statut
+                   ou une règle interne.
 
-                10. Pour une question générale qui ne nécessite
-                    ni base de données ni document interne,
+                10. Si aucune donnée n'est trouvée,
+                    indique clairement que l'information
+                    n'existe pas dans les sources disponibles.
+
+                11. Pour une question générale qui ne nécessite
+                    ni la base de données ni les documents internes,
                     réponds directement.
 
-                11. Présente les résultats de manière claire
-                    et naturelle.
-
-                12. Lorsque search_internal_documents retourne
-                    des citations, utilise les informations citées
-                    pour construire ta réponse.
+                12. Présente les résultats de manière claire,
+                    concise et naturelle.
                 """;
 
             var cacheKey = $"ChatHistory_{sessionId}";
@@ -159,7 +163,7 @@ public class GeminiAiService : IAiService
 
             if (string.IsNullOrWhiteSpace(answer))
             {
-                _logger.LogWarning("Gemini returned an empty response.");
+                _logger.LogWarning("AI returned an empty response.");
                 return "Je n'ai pas pu générer de réponse.";
             }
 
