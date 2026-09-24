@@ -7,6 +7,7 @@ if (!token) {
     window.location.href = "/Login";
 }
 
+let currentSessionId = null;
 
 async function ask() {
 
@@ -46,6 +47,7 @@ async function ask() {
                     },
 
                     body: JSON.stringify({
+                        sessionId: currentSessionId,
                         message: question
                     })
                 });
@@ -71,6 +73,10 @@ async function ask() {
 
         const data =
             await response.json();
+
+        if (data.sessionId) {
+            currentSessionId = data.sessionId;
+        }
 
         answer.textContent =
             data.answer;
