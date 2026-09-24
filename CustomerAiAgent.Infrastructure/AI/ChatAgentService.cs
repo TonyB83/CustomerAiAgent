@@ -12,12 +12,11 @@ public class ChatAgentService : IAiService
     private readonly IChatCompletionService _chatCompletionService;
     private readonly IMemoryCache _cache;
     private readonly ILogger<ChatAgentService> _logger;
-
     public ChatAgentService(
-        Kernel kernel,
-        IChatCompletionService chatCompletionService,
-        IMemoryCache cache,
-        ILogger<ChatAgentService> logger)
+    Kernel kernel,
+    IChatCompletionService chatCompletionService,
+    IMemoryCache cache,
+    ILogger<ChatAgentService> logger)
     {
         _kernel = kernel;
         _chatCompletionService = chatCompletionService;
